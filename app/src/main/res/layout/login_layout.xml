@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/login_bg"
+    />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dp"
+    >
+        <Button
+                android:id="@+id/loginBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:background="@drawable/button_background_white"
+                android:textSize="14sp"
+                android:padding="12dp"
+                android:textAlignment="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@id/logoSlogan"
+                android:layout_marginTop="20dp"
+        />
+
+        <ImageView
+                android:id="@+id/logoSlogan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_slogan_white"
+        />
+
+        <LinearLayout
+                android:id="@+id/textLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/loginBtn"
+                android:gravity="center"
+        >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="do not have an account?"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="3dp"
+                    android:textSize="14sp"
+            />
+            <TextView
+                    android:id="@+id/createAccountText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/create_account"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+            />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

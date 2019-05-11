@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "151442838297",
+    "firebase_url": "https://artistra-13026.firebaseio.com",
+    "project_id": "artistra-13026",
+    "storage_bucket": "artistra-13026.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151442838297:android:b86838d9426bdec1",
+        "android_client_info": {
+          "package_name": "com.yotharit.artistra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151442838297-qi96dqh6r9o8hb2dbo7cjh3lup8v82hi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcbu9H-yzbyhtNdx-kkeW7vH3vEVwYoYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151442838297-qi96dqh6r9o8hb2dbo7cjh3lup8v82hi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
