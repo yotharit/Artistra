@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "151442838297-bfibbcgt2najb34fkskurmfq92a1hr3r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yotharit.artistra",
+            "certificate_hash": "7b8a808310ecb7fc3a233081f9eee8356e42c88c"
+          }
+        },
+        {
           "client_id": "151442838297-qi96dqh6r9o8hb2dbo7cjh3lup8v82hi.apps.googleusercontent.com",
           "client_type": 3
         }

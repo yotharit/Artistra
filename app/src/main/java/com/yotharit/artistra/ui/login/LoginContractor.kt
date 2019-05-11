@@ -6,14 +6,11 @@ import com.yotharit.artistra.common.base.BaseMvpContractorView
 class LoginContractor {
 
     interface Presenter : BaseMvpContractorPresenter {
-        fun requestRegister()
-        fun requestLogin()
+
     }
 
-    interface View : BaseMvpContractorView<Presenter> {
-        fun sendRegister()
-        fun sendLogin()
-    }
+    interface View : BaseMvpContractorView<LoginContractor.Presenter> {
 
+    }
 
 }

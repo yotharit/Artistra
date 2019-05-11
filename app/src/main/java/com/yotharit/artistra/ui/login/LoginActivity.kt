@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.View
 import com.yotharit.artistra.R
 import com.yotharit.artistra.common.base.BaseMvpActivity
-import kotlinx.android.synthetic.main.login_layout.*
 
-class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContractor.View, View.OnClickListener {
-
+class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>() , LoginContractor.View , View.OnClickListener {
     override fun initialize() {
 
     }
@@ -15,10 +13,11 @@ class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContrac
 
     override fun createPresenter() {
         LoginPresenter.createPresenter(this)
+        presenter.start()
     }
 
     override fun getLayoutView(): Int {
-        return R.layout.login_layout
+        return R.layout.login_page_layout
     }
 
     override fun bindView() {
@@ -26,8 +25,7 @@ class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContrac
     }
 
     override fun setupView() {
-        loginBtn.setOnClickListener(this)
-        createAccountText.setOnClickListener(this)
+
     }
 
 
@@ -44,23 +42,15 @@ class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContrac
     override fun saveInstanceState(outState: Bundle?) {
     }
 
-    override fun sendRegister() {
-        presenter.requestRegister()
-    }
-
-    override fun sendLogin() {
-        presenter.requestLogin()
-    }
-
     override fun onClick(v: View?) {
         when (v) {
-            loginBtn -> {
-                sendLogin()
-            }
-            createAccountText -> {
-                sendRegister()
-            }
+
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+    }
 }
