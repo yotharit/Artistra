@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               xmlns:app="http://schemas.android.com/apk/res-auto"
 >
     <FrameLayout
@@ -28,6 +28,7 @@
                     android:textColor="#fff"
                     android:textSize="18sp"
                     android:textStyle="normal"
+                    android:textAlignment="viewEnd"
             />
             <TextView
                     android:id="@+id/tvTitle"
@@ -36,8 +37,11 @@
                     android:paddingStart="10dp"
                     android:text="EVENT NAME"
                     android:textColor="#fff"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
+                    android:lines="1"
+                    android:textAlignment="viewEnd"
+
             />
             <TextView
                     android:id="@+id/tvPlace"
@@ -48,6 +52,8 @@
                     android:textColor="#fff"
                     android:textSize="14sp"
                     android:textStyle="normal"
+                    android:textAlignment="viewEnd"
+
             />
 
         </LinearLayout>
@@ -85,4 +91,31 @@
 
     </LinearLayout>
 
+    <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+            android:textColor="#222222"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:lines="3"
+            android:text="asdfdasg"
+            android:maxLines="5"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="5dp"
+    />
+
+    <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#222222"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="now"
+            android:paddingBottom="10dp"
+    />
 </LinearLayout>

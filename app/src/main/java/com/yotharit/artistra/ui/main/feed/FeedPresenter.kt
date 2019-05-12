@@ -32,8 +32,8 @@ class FeedPresenter(view: FeedContractor.View) : BaseMvpPresenter<FeedContractor
 
         compositeDisposable = CompositeDisposable()
 
-        val response = eventfulApi.autoSearch(
-            APP_KEY, "Future", 30
+        val response = eventfulApi.searchThai(
+            APP_KEY, "Thailand", "Future",50
         ).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : SingleObserver<QueryModel> {

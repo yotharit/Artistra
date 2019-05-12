@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.feed_layout.*
 class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>(), FeedContractor.View {
 
     private var data = ArrayList<EventModel>()
+    var adapter = FeedAdapter(data)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
@@ -38,8 +39,6 @@ class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>(), FeedContractor
 
     override fun createPresenter() {
         FeedPresenter.createPresenter(this)
-        showLoader()
-        presenter.start()
     }
 
     override fun bindView(view: View?) {
@@ -47,7 +46,7 @@ class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>(), FeedContractor
     }
 
     override fun setupView() {
-        feedRecyclerView.adapter = FeedAdapter(data)
+        feedRecyclerView.adapter = adapter
         feedRecyclerView.layoutManager = LinearLayoutManager(context)
     }
 
@@ -81,6 +80,7 @@ class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>(), FeedContractor
         }
         data.clear()
         data.addAll(temp)
+        adapter.notifyDataSetChanged()
     }
 
     override fun showLoader() {
@@ -89,5 +89,11 @@ class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>(), FeedContractor
 
     override fun hideLoader() {
         loader.visibility = View.GONE
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showLoader()
+        presenter.start()
     }
 }

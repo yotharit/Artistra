@@ -27,4 +27,13 @@ interface SearchApi {
         @Query("page_size") size: Int
     ): Single<QueryModel>
 
+    @GET("json/events/search")
+    fun searchThai(
+        @Query("app_key") app_key: String,
+        @Query("location") location: String,
+        @Query("date") date: String,
+        @Query("page_size") page_size: Int
+
+    ): Single<QueryModel>
+
 }

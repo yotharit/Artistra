@@ -19,6 +19,7 @@ import java.lang.Exception
 class SearchFragment : BaseMvpFragment<SearchContractor.Presenter>() , SearchContractor.View {
 
     private var data = ArrayList<EventModel>()
+    var adapter = SearchAdapter(data)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
@@ -52,7 +53,7 @@ class SearchFragment : BaseMvpFragment<SearchContractor.Presenter>() , SearchCon
 
     override fun setupView() {
 
-        searchRecyclerView.adapter = SearchAdapter(data)
+        searchRecyclerView.adapter = adapter
         searchRecyclerView.layoutManager = LinearLayoutManager(context)
         searchEditText.addTextChangedListener( object : TextWatcher {
 
@@ -102,6 +103,7 @@ class SearchFragment : BaseMvpFragment<SearchContractor.Presenter>() , SearchCon
         }
         data.clear()
         data.addAll(temp)
+        adapter.notifyDataSetChanged()
     }
 
     override fun showLoader() {
