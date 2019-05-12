@@ -2,6 +2,10 @@ package com.yotharit.artistra.ui.register
 
 import com.google.firebase.auth.FirebaseAuth
 import com.yotharit.artistra.common.base.BaseMvpPresenter
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.DatabaseReference
+
+
 
 class RegisterPresenter(view: RegisterContractor.View) : BaseMvpPresenter<RegisterContractor.View>(view),
     RegisterContractor.Presenter {
@@ -27,7 +31,13 @@ class RegisterPresenter(view: RegisterContractor.View) : BaseMvpPresenter<Regist
             if (password.length > 6) {
                 mAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        view.registerSuccess()
+                        val id =task.result!!.user.uid
+                        val mRootRef = FirebaseDatabase.getInstance().reference
+                        val mUsersRef = mRootRef.child("user")
+                        val mChildRef = mUsersRef.child(id)
+                        mChildRef.child("name").setValue(name).addOnSuccessListener {
+                            view.registerSuccess()
+                        }
                     } else {
                         view.registerFail(task.exception.toString())
                     }

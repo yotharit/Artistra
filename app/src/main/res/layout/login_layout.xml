@@ -83,7 +83,6 @@
                 app:mk_type="Whirlpool"
                 app:mk_color="@android:color/white"
         />
-
     </RelativeLayout>
 
 

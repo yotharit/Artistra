@@ -4,11 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yotharit.artistra.R
 import com.yotharit.artistra.common.base.BaseMvpFragment
+import com.yotharit.artistra.ui.main.feed.adapter.FeedAdapter
+import com.yotharit.artistra.ui.main.search.model.EventModel
+import com.yotharit.artistra.ui.main.search.model.QueryModel
+import kotlinx.android.synthetic.main.feed_layout.*
 
-class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>() , FeedContractor.View {
+class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>(), FeedContractor.View {
 
+    private var data = ArrayList<EventModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
@@ -32,6 +38,8 @@ class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>() , FeedContracto
 
     override fun createPresenter() {
         FeedPresenter.createPresenter(this)
+        showLoader()
+        presenter.start()
     }
 
     override fun bindView(view: View?) {
@@ -39,7 +47,8 @@ class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>() , FeedContracto
     }
 
     override fun setupView() {
-
+        feedRecyclerView.adapter = FeedAdapter(data)
+        feedRecyclerView.layoutManager = LinearLayoutManager(context)
     }
 
     override fun restoreArgument(bundle: Bundle?) {
@@ -62,5 +71,23 @@ class FeedFragment : BaseMvpFragment<FeedContractor.Presenter>() , FeedContracto
 
     }
 
+    override fun setData(send: QueryModel) {
+        var temp = ArrayList<EventModel>()
+        try {
+            temp.addAll(send.eventList.event)
+            hideLoader()
+        } catch (e: Exception) {
 
+        }
+        data.clear()
+        data.addAll(temp)
+    }
+
+    override fun showLoader() {
+        loader.visibility = View.VISIBLE
+    }
+
+    override fun hideLoader() {
+        loader.visibility = View.GONE
+    }
 }

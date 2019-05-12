@@ -4,6 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:visibility="gone"
 >
     <LinearLayout
             android:layout_width="match_parent"
@@ -98,95 +99,101 @@
             <TextView
                     android:id="@+id/tvDescription"
                     android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:text="ABOUT CONCERT"
-                      android:textColor="#222222"
-                      android:textSize="14sp"
-                      android:textStyle="normal"
-                      android:maxLines="3"
-            />
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical"
-                      android:paddingLeft="10dp"
-                      android:paddingRight="10dp"
-                      android:paddingTop="10dp"
-                      android:weightSum="5"
-
-        >
-            <TextView android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:textColor="#222222"
-                      android:text="ARTIST"
-                      android:textSize="14sp"
-                      android:textStyle="bold"
-                      android:maxLines="1"
-                      android:layout_marginBottom="5dp"
-            />
-            <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-            >
-                <com.github.siyamed.shapeimageview.CircularImageView
-                        android:layout_width="15dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:src="@drawable/artist"
-                        android:scaleType="centerCrop"
-                />
-                <LinearLayout android:layout_width="0dp"
-                              android:layout_height="match_parent"
-                              android:layout_weight="2"
-                              android:padding="5dp"
-                              android:orientation="vertical"
-                              android:weightSum="1"
-                >
-                    <TextView
-                            android:id="@+id/tvArtistName"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="#222222"
-                            android:text="ED SHEERAN"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:maxLines="1"
-                            android:paddingLeft="5dp"
-                            android:textAllCaps="true"
-                    />
-                    <TextView
-                            android:id="@+id/tvArtistShortBio"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:textColor="#222222"
-                            android:text="English singer-songwriter"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:maxLines="3"
-                            android:paddingLeft="5dp"
-                            android:textAllCaps="true"
-                    />
-                </LinearLayout>
-                <com.sackcentury.shinebuttonlib.ShineButton
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@android:color/darker_gray"
-                        android:id="@+id/artistLike"
-                        app:btn_color="#222222"
-                        app:btn_fill_color="#0E4D92"
-                        app:allow_random_color="false"
-                        app:siShape="@raw/like"
-                        android:layout_marginEnd="10dp"
-                        android:layout_gravity="center_vertical"
-                />
-
-            </LinearLayout>
-
+                    android:text="ABOUT CONCERT"
+                    android:textColor="#222222"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    android:maxLines="6"
+                    android:lines="3"
+            />
         </LinearLayout>
 
+        <!--<LinearLayout android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:paddingRight="10dp"-->
+        <!--android:paddingTop="10dp"-->
+        <!--android:weightSum="5"-->
+
+        <!--&gt;-->
+        <!--&lt;!&ndash;<TextView android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="#222222"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="ARTIST"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="14sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:maxLines="1"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginBottom="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<com.github.siyamed.shapeimageview.CircularImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="15dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:src="@drawable/artist"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:scaleType="centerCrop"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<LinearLayout android:layout_width="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_weight="2"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:padding="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:weightSum="1"&ndash;&gt;-->
+        <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/tvArtistName"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="#222222"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="ED SHEERAN"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="18sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:maxLines="1"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:paddingLeft="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textAllCaps="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/tvArtistShortBio"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="0dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textColor="#222222"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:text="English singer-songwriter"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textSize="10sp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:maxLines="3"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:paddingLeft="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:textAllCaps="true"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+        <!--&lt;!&ndash;<com.sackcentury.shinebuttonlib.ShineButton&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="30dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="30dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:src="@android:color/darker_gray"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/artistLike"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:btn_color="#222222"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:btn_fill_color="#0E4D92"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:allow_random_color="false"&ndash;&gt;-->
+        <!--&lt;!&ndash;app:siShape="@raw/like"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_marginEnd="10dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_gravity="center_vertical"&ndash;&gt;-->
+        <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
+
+        <!--</LinearLayout>-->
+
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="8dp"
+                     android:background="#222222"
+                     android:layout_marginTop="10dp"
+        />
 
 
     </LinearLayout>

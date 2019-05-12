@@ -1,14 +1,24 @@
 package com.yotharit.artistra.ui.main.search
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yotharit.artistra.R
 import com.yotharit.artistra.common.base.BaseMvpFragment
+import com.yotharit.artistra.ui.main.search.adapter.SearchAdapter
+import com.yotharit.artistra.ui.main.search.model.EventModel
+import com.yotharit.artistra.ui.main.search.model.QueryModel
+import kotlinx.android.synthetic.main.search_layout.*
+import java.lang.Exception
 
 class SearchFragment : BaseMvpFragment<SearchContractor.Presenter>() , SearchContractor.View {
 
+    private var data = ArrayList<EventModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
@@ -32,6 +42,8 @@ class SearchFragment : BaseMvpFragment<SearchContractor.Presenter>() , SearchCon
 
     override fun createPresenter() {
         SearchPresenter.createPresenter(this)
+        presenter.start()
+        showLoader()
     }
 
     override fun bindView(view: View?) {
@@ -39,6 +51,24 @@ class SearchFragment : BaseMvpFragment<SearchContractor.Presenter>() , SearchCon
     }
 
     override fun setupView() {
+
+        searchRecyclerView.adapter = SearchAdapter(data)
+        searchRecyclerView.layoutManager = LinearLayoutManager(context)
+        searchEditText.addTextChangedListener( object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                showLoader()
+                presenter.requestData(s.toString())
+            }
+        })
 
     }
 
@@ -62,5 +92,24 @@ class SearchFragment : BaseMvpFragment<SearchContractor.Presenter>() , SearchCon
 
     }
 
+    override fun setData(send: QueryModel) {
+        var temp = ArrayList<EventModel>()
+        try {
+            temp.addAll(send.eventList.event)
+            hideLoader()
+        } catch (e : Exception){
+
+        }
+        data.clear()
+        data.addAll(temp)
+    }
+
+    override fun showLoader() {
+        loader.visibility = View.VISIBLE
+    }
+
+    override fun hideLoader() {
+        loader.visibility = View.GONE
+    }
 
 }
