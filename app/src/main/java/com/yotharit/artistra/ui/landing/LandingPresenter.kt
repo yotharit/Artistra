@@ -12,7 +12,10 @@ class LandingPresenter(view : LandingContractor.View) : BaseMvpPresenter<Landing
     override fun start() {
         mAuth = FirebaseAuth.getInstance()
         if(mAuth!!.currentUser!=null){
-
+            view.accessToMainScreen()
+        }
+        else {
+            view.hideLoader()
         }
     }
 
@@ -27,7 +30,7 @@ class LandingPresenter(view : LandingContractor.View) : BaseMvpPresenter<Landing
     }
 
     override fun requestRegister() {
-
+        view.register()
     }
 
     override fun requestLogin() {

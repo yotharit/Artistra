@@ -6,6 +6,8 @@ import android.view.View
 import com.yotharit.artistra.R
 import com.yotharit.artistra.common.base.BaseMvpActivity
 import com.yotharit.artistra.ui.login.LoginActivity
+import com.yotharit.artistra.ui.main.MainActivity
+import com.yotharit.artistra.ui.register.RegisterActivity
 import kotlinx.android.synthetic.main.login_layout.*
 
 class LandingActivity : BaseMvpActivity<LandingContractor.Presenter>(), LandingContractor.View, View.OnClickListener {
@@ -16,6 +18,11 @@ class LandingActivity : BaseMvpActivity<LandingContractor.Presenter>(), LandingC
 
     override fun createPresenter() {
         LandingPresenter.createPresenter(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showLoader()
         presenter.start()
     }
 
@@ -65,6 +72,11 @@ class LandingActivity : BaseMvpActivity<LandingContractor.Presenter>(), LandingC
         }
     }
 
+    override fun register() {
+        val intent = (Intent(this, RegisterActivity::class.java))
+        startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)    }
+
     override fun login() {
         val intent = (Intent(this, LoginActivity::class.java))
         startActivity(intent)
@@ -72,9 +84,17 @@ class LandingActivity : BaseMvpActivity<LandingContractor.Presenter>(), LandingC
     }
 
     override fun accessToMainScreen() {
-//        val intent = (Intent(this, SignUpActivity::class.java))
-//        startActivity(intent)
-//        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        val intent = (Intent(this, MainActivity::class.java))
+        startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        finish()
+    }
 
+    override fun showLoader() {
+        loader.visibility = View.VISIBLE
+    }
+
+    override fun hideLoader() {
+        loader.visibility = View.GONE
     }
 }

@@ -1,4 +1,4 @@
-package com.yotharit.artistra.ui.login
+package com.yotharit.artistra.ui.register
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,24 +6,23 @@ import android.view.View
 import android.widget.Toast
 import com.yotharit.artistra.R
 import com.yotharit.artistra.common.base.BaseMvpActivity
-import com.yotharit.artistra.ui.landing.LandingActivity
-import com.yotharit.artistra.ui.splash.SplashActivity
-import kotlinx.android.synthetic.main.login_page_layout.*
+import com.yotharit.artistra.ui.login.LoginActivity
+import kotlinx.android.synthetic.main.register_layout.*
 
-class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContractor.View, View.OnClickListener {
-
+class RegisterActivity : BaseMvpActivity<RegisterContractor.Presenter>(), RegisterContractor.View,
+    View.OnClickListener {
     override fun initialize() {
 
     }
 
 
     override fun createPresenter() {
-        LoginPresenter.createPresenter(this)
+        RegisterPresenter.createPresenter(this)
         presenter.start()
     }
 
     override fun getLayoutView(): Int {
-        return R.layout.login_page_layout
+        return R.layout.register_layout
     }
 
     override fun bindView() {
@@ -31,7 +30,7 @@ class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContrac
     }
 
     override fun setupView() {
-        loginBtn.setOnClickListener(this)
+        registerBtn.setOnClickListener(this)
         hideLoader()
     }
 
@@ -51,11 +50,12 @@ class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContrac
 
     override fun onClick(v: View?) {
         when (v) {
-            loginBtn -> {
+            registerBtn -> {
                 showLoader()
-                val username = etLoginUser.text.toString()
-                val password = etLoginPassword.text.toString()
-                presenter.requestLogin(username, password)
+                val username = etUsername.text.toString()
+                val password = etPassword.text.toString()
+                val name = etName.text.toString()
+                presenter.requestRegister(username, password, name)
             }
         }
     }
@@ -66,23 +66,23 @@ class LoginActivity : BaseMvpActivity<LoginContractor.Presenter>(), LoginContrac
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
     }
 
-    override fun login() {
-        val intent = (Intent(this, LandingActivity::class.java))
-        startActivity(intent)
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-        finish()
-    }
-
-    override fun loginFailed(error: String) {
-        Toast.makeText(this, error, Toast.LENGTH_LONG).show()
-        hideLoader()
+    override fun hideLoader() {
+        loader.visibility = View.GONE
     }
 
     override fun showLoader() {
         loader.visibility = View.VISIBLE
     }
 
-    override fun hideLoader() {
-        loader.visibility = View.GONE
+    override fun registerSuccess() {
+        val intent = (Intent(this, LoginActivity::class.java))
+        startActivity(intent)
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+        finish()
+    }
+
+    override fun registerFail(error: String) {
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show()
+        hideLoader()
     }
 }

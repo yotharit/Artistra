@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tab_title">
+        <item>FEED</item>
+        <item>SEARCH</item>
+        <item>CALENDAR</item>
+        <item>USER</item>
+    </array>
+</resources>

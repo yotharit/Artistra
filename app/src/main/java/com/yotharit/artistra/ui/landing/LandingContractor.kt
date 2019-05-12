@@ -15,6 +15,9 @@ class LandingContractor {
         fun sendLogin()
         fun login()
         fun accessToMainScreen()
+        fun register()
+        fun showLoader()
+        fun hideLoader()
     }
 
 

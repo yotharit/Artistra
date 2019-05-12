@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+
+>
 
     <ImageView
             android:scaleType="centerCrop"
@@ -12,7 +15,7 @@
 
     <RelativeLayout
             android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="60dp"
     >
@@ -65,6 +68,22 @@
                     android:textSize="14sp"
             />
         </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/loader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@color/colorPrimary"
+    >
+
+        <com.tuyenmonkey.mkloader.MKLoader
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:mk_type="Whirlpool"
+                app:mk_color="@android:color/white"
+        />
+
     </RelativeLayout>
 
 
