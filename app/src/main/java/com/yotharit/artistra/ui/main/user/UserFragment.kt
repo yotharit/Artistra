@@ -44,21 +44,23 @@ class UserFragment : BaseMvpFragment<UserContractor.Presenter>(), UserContractor
     }
 
     override fun bindView(view: View?) {
-        val id = FirebaseAuth.getInstance().currentUser!!.uid
-        val mRootRef = FirebaseDatabase.getInstance().reference
-        val mUsersRef = mRootRef.child("user")
-        val mChildRef = mUsersRef.child(id)
-        mChildRef.child("name").addValueEventListener(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                val value = p0.getValue(String::class.java)
-                if(value!=null){
-                    tvUserName.text = value
-                }
-            }
-        })
+//        val id = FirebaseAuth.getInstance().currentUser!!.uid
+//        val mRootRef = FirebaseDatabase.getInstance().reference
+//        val mUsersRef = mRootRef.child("user")
+//        val mChildRef = mUsersRef.child(id)
+//        var value : StringBuilder = java.lang.StringBuilder()
+//        mChildRef.child("name").addValueEventListener(object : ValueEventListener {
+//            override fun onCancelled(p0: DatabaseError) {
+//            }
+//
+//            override fun onDataChange(p0: DataSnapshot) {
+//                if(p0.value.toString()!=null){
+//                    value = value.append(p0.getValue(String::class.java))
+//                }
+//            }
+//        })
+//        tvUserName.text = value.toString()
+        tvUserEmail.text = FirebaseAuth.getInstance().currentUser!!.email
         logOutBtn.setOnClickListener(this)
     }
 

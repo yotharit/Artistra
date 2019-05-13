@@ -15,13 +15,13 @@ class MainFragmentAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapt
         when(position) {
             0 -> fragment = FeedFragment()
             1 -> return SearchFragment()
-            2 -> return CalendarFragment()
-            3 -> return UserFragment()
+//            2 -> return CalendarFragment()
+            2 -> return UserFragment()
         }
         return fragment
     }
 
     override fun getCount(): Int {
-        return 4
+        return 3
     }
 }

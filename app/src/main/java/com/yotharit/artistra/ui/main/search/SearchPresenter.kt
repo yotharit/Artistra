@@ -36,7 +36,7 @@ class SearchPresenter(view: SearchContractor.View) : BaseMvpPresenter<SearchCont
         compositeDisposable = CompositeDisposable()
 
         val response = eventfulApi.autoSearch(
-            APP_KEY, "This Week", 20
+            APP_KEY, "This Week", 10,"music"
         ).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : SingleObserver<QueryModel> {
@@ -65,7 +65,7 @@ class SearchPresenter(view: SearchContractor.View) : BaseMvpPresenter<SearchCont
     }
 
     override fun requestData(keyword: String) {
-        eventfulApi.searchByKeyword(APP_KEY, keyword).subscribeOn(Schedulers.io())
+        eventfulApi.searchByKeyword(APP_KEY, keyword,"music",50).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : SingleObserver<QueryModel> {
                 override fun onSuccess(t: QueryModel) {

@@ -3,7 +3,7 @@
     <array name="tab_title">
         <item>FEED</item>
         <item>SEARCH</item>
-        <item>CALENDAR</item>
+        <!--<item>CALENDAR</item>-->
         <item>USER</item>
     </array>
 </resources>

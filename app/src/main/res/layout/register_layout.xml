@@ -48,7 +48,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="@android:color/white"
                 android:hint="Please enter password."
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:paddingBottom="18dp"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/white"

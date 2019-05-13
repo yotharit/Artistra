@@ -7,7 +7,7 @@ import com.yotharit.artistra.common.base.BaseMvpActivity
 import com.yotharit.artistra.ui.main.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.main_layout.*
 
-class MainActivity : BaseMvpActivity<MainContractor.Presenter>() , MainContractor.View , View.OnClickListener {
+class MainActivity : BaseMvpActivity<MainContractor.Presenter>(), MainContractor.View, View.OnClickListener {
 
     override fun initialize() {
 

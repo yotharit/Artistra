@@ -9,7 +9,9 @@ interface SearchApi {
     @GET("json/events/search")
     fun searchByKeyword(
         @Query("app_key") app_key: String,
-        @Query("keywords") keywords: String
+        @Query("keywords") keywords: String,
+        @Query("category") category : String,
+        @Query("page_size") size : Int
     ): Single<QueryModel>
 
     @GET("json/events/search")
@@ -17,14 +19,16 @@ interface SearchApi {
         @Query("app_key") app_key: String,
         @Query("keywords") keywords: String,
         @Query("date") date: String,
-        @Query("page_size") size: Int
+        @Query("page_size") size: Int,
+        @Query("category") category : String
     ): Single<QueryModel>
 
     @GET("json/events/search")
     fun autoSearch(
         @Query("app_key") app_key: String,
         @Query("date") date: String,
-        @Query("page_size") size: Int
+        @Query("page_size") size: Int,
+        @Query("category") category : String
     ): Single<QueryModel>
 
     @GET("json/events/search")
@@ -32,7 +36,8 @@ interface SearchApi {
         @Query("app_key") app_key: String,
         @Query("location") location: String,
         @Query("date") date: String,
-        @Query("page_size") page_size: Int
+        @Query("page_size") page_size: Int,
+        @Query("category") category : String
 
     ): Single<QueryModel>
 
